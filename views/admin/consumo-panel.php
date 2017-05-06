@@ -21,7 +21,7 @@
         <?php
         require "../../controllers/Cliente.php";
         require "../../controllers/Consumo.php";
-
+        
         $clientes = Cliente::obtenerClientes();
         $clientesConsumo = Cliente::obtenerClientesMasConsumo();
         $datosTablaConsumo = Consumo::obtenerConsumoMasFecha();
@@ -35,6 +35,7 @@
         ?>  
         <script>
             $(document).ready(function () {
+                $(".button-collapse").sideNav();
                 $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function (data) {
 
                     // Create the chart

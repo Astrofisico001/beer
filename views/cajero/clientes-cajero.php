@@ -6,82 +6,82 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <?php include '../../util/html-cajero/head.php'; ?>
+        <?php include '../../util/html-generic/head-links-and-scripts.php'; ?>
         <title>Clientes</title>
     </head>
-    <body>
-        <?php
-        include '../../util/reservas/getReservas.php';
-        include '../../util/clientes/getClientes.php';
-        ?>
-        <script>
-            $(document).ready(function () {
-                $(".button-collapse").sideNav();
-                $('#table-consumo').DataTable();
-                $('#table-reservas').DataTable();
-                $('#table-clientes').DataTable();
-                $("select").val('10'); //seleccionar valor por defecto del select
-                $('select').addClass("browser-default"); //agregar una clase de materializecss de esta forma ya no se pierde el select de numero de registros.
-                $('select').material_select(); //inicializar el select de materialize
-                Highcharts.chart('container', {
-                    chart: {
-                        plotBackgroundColor: null,
-                        plotBorderWidth: 0,
-                        plotShadow: false
-                    },
-                    title: {
-                        text: 'Ranking<br>de<br>Consumo',
-                        align: 'center',
-                        verticalAlign: 'middle',
-                        y: 40
-                    },
-                    tooltip: {
-                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                    },
-                    plotOptions: {
-                        pie: {
-                            dataLabels: {
-                                enabled: true,
-                                distance: -50,
-                                style: {
-                                    fontWeight: 'bold',
-                                    color: 'white'
-                                }
-                            },
-                            startAngle: -90,
-                            endAngle: 90,
-                            center: ['50%', '75%']
-                        }
-                    },
-                    series: [{
-                            type: 'pie',
-                            name: 'Browser share',
-                            innerSize: '50%',
-                            data: [
-                                ['Mesa 1', 40.00],
-                                ['Mesa 2', 60.00],
-                                {
-                                    name: 'Proprietary or Undetectable',
-                                    y: 0.2,
-                                    dataLabels: {
-                                        enabled: false
+        <body>
+            <?php
+            include '../../util/reservas/getReservas.php';
+            include '../../util/clientes/getClientes.php';
+            ?>
+            <script>
+                $(document).ready(function () {
+                    $(".button-collapse").sideNav();
+                    $('#table-consumo').DataTable();
+                    $('#table-reservas').DataTable();
+                    $('#table-clientes').DataTable();
+                    $("select").val('10'); //seleccionar valor por defecto del select
+                    $('select').addClass("browser-default"); //agregar una clase de materializecss de esta forma ya no se pierde el select de numero de registros.
+                    $('select').material_select(); //inicializar el select de materialize
+                    Highcharts.chart('container', {
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: 0,
+                            plotShadow: false
+                        },
+                        title: {
+                            text: 'Ranking<br>de<br>Consumo',
+                            align: 'center',
+                            verticalAlign: 'middle',
+                            y: 40
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        },
+                        plotOptions: {
+                            pie: {
+                                dataLabels: {
+                                    enabled: true,
+                                    distance: -50,
+                                    style: {
+                                        fontWeight: 'bold',
+                                        color: 'white'
                                     }
-                                }
-                            ]
-                        }]
+                                },
+                                startAngle: -90,
+                                endAngle: 90,
+                                center: ['50%', '75%']
+                            }
+                        },
+                        series: [{
+                                type: 'pie',
+                                name: 'Browser share',
+                                innerSize: '50%',
+                                data: [
+                                    ['Mesa 1', 40.00],
+                                    ['Mesa 2', 60.00],
+                                    {
+                                        name: 'Proprietary or Undetectable',
+                                        y: 0.2,
+                                        dataLabels: {
+                                            enabled: false
+                                        }
+                                    }
+                                ]
+                            }]
+                    });
                 });
-            });
-        </script>
-        <?php
-        //enviar mensajes 
-        $cont = 1;
-        if ($cont = 1) {
-            echo "<script>$(document).ready(function () {Materialize.toast('NUEVA RESERVA EN LA MESA 1!', 4000)}); </script>";
-        } else {
-            echo "<script>$(document).ready(function () {Materialize.toast('PROBLEMA EN LA MESA 2!', 10000) }); </script>";
-        }
-        ?>
-        <div class="card">
+            </script>
+            <?php
+            //enviar mensajes 
+            $cont = 1;
+            if ($cont = 1) {
+                echo "<script>$(document).ready(function () {Materialize.toast('NUEVA RESERVA EN LA MESA 1!', 4000)}); </script>";
+            } else {
+                echo "<script>$(document).ready(function () {Materialize.toast('PROBLEMA EN LA MESA 2!', 10000) }); </script>";
+            }
+            ?>
+            <div class="card">
             <div class="card-content orange darken-2">
                 <a href="#" data-activates="slide-out" class="button-collapse"><i class=" material-icons" style="color:#fff" >menu</i></a>
                 <ul id="slide-out" class="side-nav">
@@ -274,63 +274,11 @@ and open the template in the editor.
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Correo Electrónico</th>
-                                    <th>Consumo (Ltrs)</th>
-                                    <th>Acciones</th>
+                                    <th>Teléfono</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                foreach ($clientes as $row) {
-                                    $nombre = $row["nombre_completo"];
-                                    $correo = $row["correo_electronico"];
-                                    $total = $row["total"];
-                                    $telefono = $row["telefono"];
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $nombre; ?></td>
-                                        <td><?php echo $correo; ?></td>
-                                        <td><?php echo $total; ?></td>
-                                        <td> <a class="btn-flat waves-effect " href="#modal1"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                            <!-- Modal Structure -->
-                                            <div id="modal1" class="modal">
-                                                <div class="modal-content">
-                                                    <h4>Modal Header</h4>
-                                                    <p>modal 1</p>
-                                                </div>
-                                            </div>
-                                            <a class="btn-flat small" href="path/to/settings" aria-label="Delete">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                            </a>
-
-                                            <a class="btn-flat waves-effect " href="#modal2"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            <div id="modal2" class="modal">
-                                                <div class="modal-content">
-                                                    <div class="row">
-                                                        <form class="col s12">
-                                                            <div class="row">
-                                                                <div class="input-field col s6">
-                                                                    <input placeholder="Placeholder" id="first_name" type="text" class="validate" value="<?php echo $nombre; ?>">
-                                                                    <label for="first_name">Nombre</label>
-                                                                </div>
-                                                                <div class="input-field col s6">
-                                                                    <input id="last_name" type="text" class="validate" value="<?php echo $telefono; ?>">
-                                                                    <label for="last_name">Telefono</label>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="input-field col s12">
-                                                                    <input id="email" type="email" class="validate" value="<?php echo $correo; ?>">
-                                                                    <label for="email">Email</label>
-                                                                </div>
-                                                            </div>
-                                                            <a class="waves-effect waves-light btn">Modificar</a>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
+                                <?php include '../../util/html-cajero/obtener_clientes.php'; ?>
                             </tbody>
                         </table>
                     </div>

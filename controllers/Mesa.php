@@ -47,4 +47,21 @@ class Mesa {
         }
     }
 
+    //obtener ranking de consumo 
+    public static function obtenerRankingConsumo($codigo_mesa) {
+
+        try {
+            $conexion = new Conexion();
+            $sql = "";
+            $consulta = $conexion->prepare($sql);
+            $consulta->execute();
+            $estado = $consulta->fectch();
+            if (true) {
+                
+            }
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+
 }

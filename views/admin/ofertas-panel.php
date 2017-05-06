@@ -1,18 +1,6 @@
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link href="../../materialize/css/materialize.css" rel="stylesheet" type="text/css"/>
-        <script src="../../materialize/js/jquery.js" type="text/javascript"></script>
-        <script src="../../materialize/js/materialize.js" type="text/javascript"></script>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://code.highcharts.com/stock/highstock.js"></script>
-        <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
-        <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-        <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/exporting.js"></script>
-                <link rel="icon" type="image/png" href="https://s-media-cache-ak0.pinimg.com/originals/9d/63/bd/9d63bd96356d4ac066ee53aa699250e9.png" />
+        <?php include '../../util/html-generic/head-links-and-scripts.php'; ?>
         <title>Panel ADM V 1.0</title>
     </head>
     <body>
@@ -21,6 +9,7 @@
         ?>  
         <script>
             $(document).ready(function () {
+                $(".button-collapse").sideNav();
                 $('#table-ofertas').DataTable();
                 $("select").val('10'); //seleccionar valor por defecto del select
                 $('select').addClass("browser-default"); //agregar una clase de materializecss de esta forma ya no se pierde el select de numero de registros.
@@ -28,10 +17,10 @@
                 $('ul.tabs').tabs('select_tab', 'tab_id');
                 $('.modal').modal();
                 $('.modal2').modal();
-                
+
             });
         </script>
-        <?php include '../../util/html-admin/header.php';?>
+        <?php include '../../util/html-admin/header.php'; ?>
         <div class="row">
             <div class="row">
                 <div class="col m2"></div>
@@ -44,56 +33,56 @@
                     </div>
                     <div class="card-conten">
                         <div id="test4"><div class="col m7">
-                            <div class="row">
-                                <form class="col s12 m12">
-                                    <div class="row">
-                                        <div class="input-field col s12 m6">
-                                            <i class="material-icons prefix">label</i>
-                                            <input id="icon_prefix" type="text" class="validate">
-                                            <label for="icon_prefix">Nombre de la Oferta</label>
-                                        </div>
-                                        <div class="input-field col s12 m6">
-                                            <i class="material-icons prefix">stars</i>
-                                            <input id="icon_telephone" type="tel" class="validate">
-                                            <label for="icon_telephone">Precio</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                       
-                                        <div class="input-field col s12 m12">
-                                            <select>
-                                                <option value="" disabled selected>Choose your option</option>
-                                                <option value="1">Option 1</option>
-                                                <option value="2">Option 2</option>
-                                                <option value="3">Option 3</option>
-                                            </select>
-                                            <label>Tipo de Oferta</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label>Materialize Multi File Input</label>
-                                        <div class="file-field input-field">
-                                            <div class="btn">
-                                                <span>Foto</span>
-                                                <input type="file" multiple>
+                                <div class="row">
+                                    <form class="col s12 m12">
+                                        <div class="row">
+                                            <div class="input-field col s12 m6">
+                                                <i class="material-icons prefix">label</i>
+                                                <input id="icon_prefix" type="text" class="validate">
+                                                <label for="icon_prefix">Nombre de la Oferta</label>
                                             </div>
-                                            <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="Upload multiple files">
+                                            <div class="input-field col s12 m6">
+                                                <i class="material-icons prefix">stars</i>
+                                                <input id="icon_telephone" type="tel" class="validate">
+                                                <label for="icon_telephone">Precio</label>
                                             </div>
-                                        </div>    
-                                    </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="input-field col s12 m12">
+                                                <select>
+                                                    <option value="" disabled selected>Choose your option</option>
+                                                    <option value="1">Option 1</option>
+                                                    <option value="2">Option 2</option>
+                                                    <option value="3">Option 3</option>
+                                                </select>
+                                                <label>Tipo de Oferta</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label>Materialize Multi File Input</label>
+                                            <div class="file-field input-field">
+                                                <div class="btn">
+                                                    <span>Foto</span>
+                                                    <input type="file" multiple>
+                                                </div>
+                                                <div class="file-path-wrapper">
+                                                    <input class="file-path validate" type="text" placeholder="Upload multiple files">
+                                                </div>
+                                            </div>    
+                                        </div>
+                                </div>
                             </div>
-                        </div>
                             <div class="row">
-                                   <div class="input-field col s12 m12">
-                                            <select>
-                                                <option value="" disabled selected>Choose your option</option>
-                                                <option value="1">Option 1</option>
-                                                <option value="2">Option 2</option>
-                                                <option value="3">Option 3</option>
-                                            </select>
-                                            <label>Mesa Asignada</label>
-                                        </div>
+                                <div class="input-field col s12 m12">
+                                    <select>
+                                        <option value="" disabled selected>Choose your option</option>
+                                        <option value="1">Option 1</option>
+                                        <option value="2">Option 2</option>
+                                        <option value="3">Option 3</option>
+                                    </select>
+                                    <label>Mesa Asignada</label>
+                                </div>
                                 <div class="input-field col s12 m6">
                                     <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
                                         <i class="material-icons right">send</i>

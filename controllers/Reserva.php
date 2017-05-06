@@ -21,7 +21,7 @@ class Reserva {
         try {
             $conexion = new Conexion();
             //obtenemos la información que se mostrara en la vista del cajero
-            $sql = "SELECT reservas.codigo_mesa,reservas.cantidad,reservas.fecha_reserva,"
+            $sql = "SELECT reservas.reserva_id, reservas.codigo_mesa,reservas.cantidad,reservas.fecha_reserva,"
                     . " TIMESTAMPDIFF(MINUTE, reservas.fecha_reserva, now()) AS 'desde_hace',"
                     . "reservas.estado,ofertas.producto,ofertas.precio,ofertas.imagen_url,"
                     . "ofertas.estado FROM " . self::TABLA . ""
@@ -34,13 +34,17 @@ class Reserva {
             echo $exc->getTraceAsString();
         }
     }
-
-    public function insertarReservas() {
-        
-    }
-
-    public function editarResrva() {
-        
+    
+    public function borrarReserva($reserva) {
+        try {
+            $conexion = new Conexion();
+            $sql = "DELETE FROM reservas WHERE reserva_id=?";
+            $consulta = $conexion->prepare($sql);
+            $consulta->bindParam(1, $reserva);
+            $consulta->execute();
+        } catch (Exception $exc) {
+            echo $exc->getdTraceAsString();
+        }
     }
 
 }

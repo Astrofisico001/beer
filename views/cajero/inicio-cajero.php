@@ -2,7 +2,7 @@
 <html>
     <head>
         <!-- Llamamos el php contenedor de scripts y links para la pagina-->
-        <?php include '../../util/html-cajero/head.php'; ?>
+        <?php include '../../util/html-generic/head-links-and-scripts.php'; ?>
         <title>Inicio</title>
     </head>
     <body>
@@ -15,7 +15,6 @@
                 $('.carousel').carousel();
                 $('#modal1').modal();
                 $('#table-reservas').DataTable();
-
                 $("select").val('10'); //seleccionar valor por defecto del select
                 $('select').addClass("browser-default"); //agregar una clase de materializecss de esta forma ya no se pierde el select de numero de registros.
                 $('select').material_select(); //inicializar el select de materialize
@@ -90,7 +89,6 @@
                             <a href="#!name"><span class="white-text name">Eduardo Orbenes Díaz</span></a>
                             <a href="#!email"><span class="white-text email">eduardoorbenes@gmail.com</span></a>
                         </div></li>
-                    <!--<li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>-->
                     <li><a href="#!">Configurar cuenta</a></li>
                     <li><div class="divider"></div></li>
                     <li><a class="subheader">Otras Acciones</a></li>
@@ -135,7 +133,8 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div></div>
+                                </div>
+                            </div>
                         </li>
                         <li>
                             <div class="collapsible-header "><span class="new badge"><?php echo count($reservas) ?></span><i class="material-icons">view_column</i>Reservas</div>

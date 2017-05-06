@@ -9,41 +9,7 @@ require_once '../../conexion/Conexion.php';
 
 class Cliente {
 
-    private $nombreCompleto;
-    private $telefono;
-    private $correoElectronico;
-
     const TABLA = 'clientes';
-
-    function getNombreCompleto() {
-        return $this->nombreCompleto;
-    }
-
-    function getTelefono() {
-        return $this->telefono;
-    }
-
-    function getCorreoElectronico() {
-        return $this->correoElectronico;
-    }
-
-    function setNombreCompleto($nombreCompleto) {
-        $this->nombreCompleto = $nombreCompleto;
-    }
-
-    function setTelefono($telefono) {
-        $this->telefono = $telefono;
-    }
-
-    function setCorreoElectronico($correoElectronico) {
-        $this->correoElectronico = $correoElectronico;
-    }
-
-    function __construct($nombreCompleto, $telefono, $correoElectronico) {
-        $this->nombreCompleto = $nombreCompleto;
-        $this->telefono = $telefono;
-        $this->correoElectronico = $correoElectronico;
-    }
 
     public static function obtenerClientes() {
         $conexion = new Conexion();
@@ -68,6 +34,20 @@ class Cliente {
             $consulta->bindParam(6, $img_url);
             $consulta->bindParam(7, $genero);
             $consulta->bindParam(8, $premium);
+            $consulta->execute();
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+
+    //metodo de prue a
+    public function pruebaInsertarUsuario($nombre, $telefono) {
+        try {
+            $conexion = new Conexion();
+            $sql = "INSERT INTO " . self::TABLA . " (nombre_completo,telefono) VALUES(?,?)";
+            $consulta = $conexion->prepare($sql);
+            $consulta->bindParam(1, $nombre);
+            $consulta->bindParam(2, $telefono);
             $consulta->execute();
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
