@@ -1,5 +1,4 @@
 
-
 <div class="nav-wrapper">
     <ul class='side-nav fixed grey darken-4' style='width:225px;  height: 100%;'>
         <li class="blue lighten-1 center"><a href="#" data-activates="slide-out" class="button-collapse"><i style="color:#fff;" class='material-icons'>reorder</i></a></li>
@@ -14,7 +13,6 @@
         <li><a href='reservas-panel.php' style="color:#fff"><i class='material-icons' style="color:#fff">shopping_cart</i>Reservas</a></li>
         <li><a href='clientes-panel.php' style="color:#fff"><i class='material-icons' style="color:#fff">people</i>Clientes</a></li>
         <li><a href='problemas-panel.php' style="color:#fff"><i class='material-icons' style="color:#fff">email</i>Notificaciones</a></li>
-
     </ul>
     <a href="#" class="brand-logo"><img width="60" height="60" src="../../img/logo.png" alt=""/></a>
     <ul id="slide-out" class="side-nav">
@@ -26,9 +24,7 @@
                 <a href="#!name"><span class="white-text name">Eduardo Orbenes Díaz</span></a>
                 <a href="#!email"><span class="white-text email">eduardoorbenes@gmail.com</span></a>
             </div></li>
-
         <!-- <li><a href="#!">Configurar cuenta</a></li>-->
-
         <li><a class="subheader">Otras Acciones</a></li>
         <li><a href='inicio-panel.php'><i class='material-icons'>reorder</i>Inicio</a></li>
         <li><a href='cajeros-panel.php'><i class='material-icons'>account_circle</i>Cajeros</a></li>
@@ -39,8 +35,7 @@
         <li><a href='clientes-panel.php'><i class='material-icons'>people</i>Clientes</a></li>
         <li><a href='problemas-panel.php'><i class='material-icons'>email</i>Notificaciones</a></li>
     </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
-
+    <a href="#" data-activates="slide-out" class="button-collapse blue lighten-1" style="padding: 20px;"><i class="material-icons" style="color:#fff;">menu</i></a>
 </div>
 
 

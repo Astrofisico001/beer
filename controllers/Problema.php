@@ -21,4 +21,21 @@ class Problema {
         
     }
 
+    public function obtenerProblemasResueltos() {
+        try {
+            $conexion = new Conexion();
+            $sql = "SELECT codigo_mesa, detalle,fecha FROM " . self::TABLA . " WHERE solucionado=1";
+            $consulta = $conexion->prepare($sql);
+            $consulta->execute();
+            $registros = $consulta->fetchAll();
+            return $registros;
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+
+    public function borrarProblemas() {
+        
+    }
+
 }

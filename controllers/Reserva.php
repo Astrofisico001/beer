@@ -35,11 +35,13 @@ class Reserva {
         }
     }
     
+    //eliminar reserva desde el panel de control
     public function borrarReserva($reserva) {
         try {
             $conexion = new Conexion();
             $sql = "DELETE FROM reservas WHERE reserva_id=?";
             $consulta = $conexion->prepare($sql);
+            //asignamos la id de reserva
             $consulta->bindParam(1, $reserva);
             $consulta->execute();
         } catch (Exception $exc) {

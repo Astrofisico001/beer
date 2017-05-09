@@ -15,7 +15,6 @@
         <div class="row">
             <div class="col m2"></div>
             <div class="col s12 m9">
-
                 <?php foreach ($usuarios as $row) { ?>        
                     <div class="card col m3 s12">
                         <div class="card-image">
@@ -23,7 +22,7 @@
                             <span class="card-title"><?php echo $row["nombre_completo"]; ?></span>
                             <a class="btn-floating halfway-fab waves-effect">
                                 <img src="<?php echo "../../" . $row["img_url_perfil"]; ?>" alt=""/>
-                            </a>
+                            </a>    
                         </div>
                         <div class="card-content">
                             <p><?php echo $row["tipo_usuario"]; ?></p>

@@ -33,14 +33,16 @@ class Mesa {
             //preparamos la conexion
             $conexion = new Conexion();
             //llamamos el estado donde el codigo de la mesa sea correspondiente a la lista y el estado sea disponible
-            $sql = "SELECT estado FROM " . self::TABLA . " WHERE codigo_mesa='$codigoMesa' AND estado=1";
+            $sql = "SELECT estado FROM " . self::TABLA . " WHERE codigo_mesa=? AND estado=1";
             //preparamos la consulta para buscar el estado de la mesa
             $consulta = $conexion->prepare($sql);
+            $consulta->bindParam(1, $codigoMesa);
             $consulta->execute();
             $estado = $consulta->fetch();
+            //si el estado de la mesa no es nulo retorna 1
             if ($estado != NULL)
                 return true;
-            else
+            else //el estado de la mesa es 0
                 return false;
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();

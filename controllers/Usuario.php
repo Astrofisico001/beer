@@ -14,8 +14,8 @@ class Usuario {
 //obtenemos todos los usuarios
     public static function obtenerUsuarios() {
         $conexion = new Conexion();
-        $sql = "SELECT user.usuario_id,user.telefono,user.nombre_completo, user.correo, "
-                . "user.fecha_ingreso,estado, tp.tipo_usuario,img_url_perfil FROM " . self::TABLA . " as user"
+        $sql = "SELECT user.telefono,user.nombre_completo, user.correo, "
+                . "user.fecha_ingreso,estado, tp.tipo_usuario,user.img_url_perfil FROM " . self::TABLA . " as user"
                 . " INNER JOIN tipos_usuarios as tp ON(user.tipo_usuario_id=tp.tipo_usuario_id); ";
         $consulta = $conexion->prepare($sql);
         $consulta->execute();
@@ -41,8 +41,9 @@ class Usuario {
     public static function retornarEstado($usuarioId) {
         try {
             $conexion = new Conexion();
-            $sql = "SELECT estado FROM usuarios WHERE usuario_id=" . $usuarioId . " AND estado=1";
+            $sql = "SELECT estado FROM usuarios WHERE usuario_id=? AND estado=1";
             $consulta = $conexion->prepare($sql);
+            $consulta->bindParam(1, $usuarioId);
             $consulta->execute();
             $registros = $consulta->fetch();
             if ($registros != null)

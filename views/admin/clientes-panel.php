@@ -16,17 +16,23 @@
                 $('select').material_select(); //inicializar el select de materialize
                 $('ul.tabs').tabs('select_tab', 'tab_id');
                 $('.modal').modal();
-                $('.modal2').modal();
+                $('.tooltipped').tooltip({delay: 50});
+<?php
+foreach ($clientes as $value) {
+    echo "$(." . $value['cliente_id'] . ").modal();";
+}
+?>
+
             });
         </script>
         <!-- Header -->
         <?php include '../../util/html-admin/header.php'; ?>
         <!-- Content -->
         <div class="row">
-            <div class="row">
+            <div class="row s12">
                 <div class="col m2"></div>
-                <div class="col m10">
-                    <table id="table-clientes">
+                <div class="col m10 s12">
+                    <table  id="table-clientes">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
@@ -47,20 +53,20 @@
                                     <td><?php echo $nombre; ?></td>
                                     <td><?php echo $correo; ?></td>
                                     <td><?php echo $total; ?></td>
-                                    <td> <a class="btn-flat waves-effect " href="#modal1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <td>
+                                        <a class="btn-flat waves-effect tooltipped" data-position="left" data-delay="50" data-tooltip="Ver más"  href="#<?php echo $row['nombre_completo']; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                         <!-- Modal Structure -->
-                                        <div id="modal1" class="modal">
+                                        <div id="<?php echo $row['nombre_completo']; ?>" class="modal">
                                             <div class="modal-content">
-                                                <h4>Modal Header</h4>
+                                                <h4><?php echo $row['nombre_completo']; ?></h4>
                                                 <p>modal 1</p>
                                             </div>
                                         </div>
-                                        <a class="btn-flat small" href="path/to/settings" aria-label="Delete">
+                                      <!--  <a class="btn-flat small" href="../../util/clientes/borrar_cliente.php?cliente=<?php echo $row["cliente_id"]; ?>" aria-label="Delete" onClick="javascript: return confirm('¿Confirmar Borrado de Cliente?');">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                        </a>
-
-                                        <a class="btn-flat waves-effect " href="#modal2"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <div id="modal2" class="modal">
+                                        </a>-->
+                                        <a class="btn-flat waves-effect tooltipped" data-position="left" data-delay="50" data-tooltip="Editar" href="#<?php echo $row['cliente_id']; ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <div id="<?php echo $row['cliente_id']; ?>" class="modal">
                                             <div class="modal-content">
                                                 <div class="row">
                                                     <form class="col s12">

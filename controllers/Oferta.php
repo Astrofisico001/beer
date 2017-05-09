@@ -40,4 +40,13 @@ class Oferta {
         $consulta->execute();
     }
 
+    public function borrarOferta() {
+        try {
+            $conexion = new Conexion();
+            $sql = "DELETE FROM ".self::TABLA." WHERE";
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+
 }

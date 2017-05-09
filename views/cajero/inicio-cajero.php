@@ -8,6 +8,7 @@
     <body>
         <?php
         include '../../util/reservas/getReservas.php';
+        include '../../util/mesas/getConsumosService.php';
         ?>
         <script>
             $(document).ready(function () {
@@ -120,16 +121,13 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php foreach ($getConsumosServices as $value) { ?>
                                                 <tr>
-                                                    <td>Mesa 1</td>
-                                                    <td>33 Litros</td>
-                                                    <td>$45000.-</td>
+                                                    <td><?php echo $value["mesa"];?></td>
+                                                    <td><?php echo $value["litros"];?></td>
+                                                    <td><?php echo ConsumoService::calcularPrecioConsumo($value["litros"]); ?></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Mesa 1</td>
-                                                    <td>33 Litros</td>
-                                                    <td>$45000.-</td>
-                                                </tr>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>

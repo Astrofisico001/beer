@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link href="../../materialize/css/materialize.css" rel="stylesheet" type="text/css"/>
 <script src="../../materialize/js/jquery.js" type="text/javascript"></script>
+<link href="../../materialize/css/materialize.css" rel="stylesheet" type="text/css"/>
 <script src="../../materialize/js/materialize.js" type="text/javascript"></script>
 <link href="../../util/css/material-icons.min.css" rel="stylesheet" type="text/css"/>
 <script src="../../util/highcharts/highstock.js" type="text/javascript"></script>
