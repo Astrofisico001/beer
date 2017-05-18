@@ -11,6 +11,8 @@
         require './controllers/Usuario.php';
         $usuario = new Usuario();
         if (isset($_POST["correo"]) && isset($_POST["password"])) {
+
+
             if ($usuario->validarUsuario($_POST["correo"], $_POST["password"])) {
                 header("Location:./views/admin/inicio-panel.php");
             }
@@ -28,6 +30,7 @@
                         <form class="col s12" method="post" action="#">
                             <div class='row'>
                                 <div class='col s12'>
+                                    <label>Enviaremos la nueva clave a su correo</label>
                                 </div>
                             </div>
                             <div class='row'>
@@ -36,25 +39,17 @@
                                     <label for='correo'>Ingresar email</label>
                                 </div>
                             </div>
-                            <div class='row'>
-                                <div class='input-field col s12 m12'>
-                                    <input class='validate' type='password' name='password' id='password' />
-                                    <label for='password'>Ingresa tu password</label>
-                                </div>
-                            </div>
                             <br/>
                             <center>
                                 <div class='row'>
-                                    <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect '>Login</button>
+                                    <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect '>Enviar</button>
                                 </div>
                             </center>
-                            <label>
-                                <a class='pink-text' href='loginrecover.php'><b>¿Olvido su contraseña?</b></a>
-                            </label>
                         </form>
                     </div>
                 </div>
             </center>
+
         </main>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>

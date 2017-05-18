@@ -1,6 +1,7 @@
 <html>
     <head>
         <?php include '../../util/html-generic/head-links-and-scripts.php'; ?>
+        <script src="../../util/js/saludo.js" type="text/javascript"></script>
         <title>Panel ADM V 1.0</title>
     </head>
     <body>
@@ -37,7 +38,7 @@
             });
         </script>
         <!-- Header -->
-        <?php include '../../util/html-admin/header.php'; ?>
+        <?php include './header.php'; ?>
         <!-- End Header -->
         <!-- Content -->
         <div class="row">

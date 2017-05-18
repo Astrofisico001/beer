@@ -10,7 +10,7 @@
         ?>  
         <script src="../../util/cajeros/cajeros_panel.js" type="text/javascript"></script>
         <!-- Header -->
-        <?php include '../../util/html-admin/header.php'; ?>
+        <?php include './header.php'; ?>
         <!-- Content -->
         <div class="row">
             <div class="col m2"></div>

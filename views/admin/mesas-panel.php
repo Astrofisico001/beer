@@ -17,7 +17,7 @@
                 $('ul.tabs').tabs('select_tab', 'tab_id');
             });
         </script>
-        <?php include '../../util/html-admin/header.php'; ?>
+        <?php include './header.php'; ?>
         <div class="row">
             <div class="row"><br>
                 <div class="col m2"></div>

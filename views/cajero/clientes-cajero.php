@@ -278,7 +278,7 @@ and open the template in the editor.
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php include '../../util/html-cajero/obtener_clientes.php'; ?>
+                                <?php include './obtener_clientes.php'; ?>
                             </tbody>
                         </table>
                     </div>

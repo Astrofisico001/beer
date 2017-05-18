@@ -5,7 +5,7 @@
  *
  * @author Beer Developers
  */
-require_once '../../conexion/Conexion.php';
+require_once 'C:\xampp\htdocs\admintemplate\conexion\Conexion.php';
 
 class Usuario {
 
@@ -119,6 +119,21 @@ class Usuario {
             $sql = "DELETE FROM " . self::TABLA . " WHERE usuario_id=$usuario";
             $consulta = $conexion->prepare($sql);
             $consulta->execute();
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+    }
+
+    public function validarUsuario($correo, $password) {
+        try {
+            $conexion = new Conexion();
+            $sql = "SELECT correo,password FROM " . self::TABLA . " WHERE correo=? AND password=?";
+            $consulta = $conexion->prepare($sql);
+            $consulta->bindParam(1, $correo);
+            $consulta->bindParam(2, $password);
+            $consulta->execute();
+            $registro = $consulta->fetch();
+            return $registro;
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
